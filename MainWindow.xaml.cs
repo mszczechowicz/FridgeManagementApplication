@@ -23,6 +23,27 @@ namespace FridgeManagementApplication
         public MainWindow()
         {
             InitializeComponent();
+            Main.Content = new Pages.UsersPage();
+        }
+
+        private void UsersPage_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Pages.UsersPage();
+        }
+
+        private void FridgePage_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Pages.FridgePage();
+        }
+
+        private void CategoriesPage_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Pages.CategoriesPage();
+        }
+
+        private void EventsPage_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Pages.EventsPage();
         }
     }
 }
