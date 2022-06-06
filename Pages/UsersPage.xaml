@@ -9,6 +9,99 @@
       Title="UsersPage">
 
     <Grid>
-        <TextBlock Text="Users" FontSize="40" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MinWidth="450" >
+
+                </ColumnDefinition>
+                <ColumnDefinition >
+
+
+                </ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+        <!--WELCOME HEADERS-->
+        <TextBlock Text="Welcome to FridgeAPP" Foreground="#FFA4BEC1" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Text="Select user from list'" Foreground="#FF626262" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,100,0,0"/>
+        <!-- Selected user section -->
+        <Label
+            Width="400"
+            Height="50"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="25,0,0,0"         
+        >
+            <Label.Background>
+                <LinearGradientBrush EndPoint="1,1" StartPoint="0,0" >
+                    <GradientStop Color="#497AA7" Offset="0"/>
+                    <GradientStop Color="#FF232323" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label
+            Width="200"
+            Height="50"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="25,0,0,0"
+            Content="Selected user:"
+            FontSize="16"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"   
+            Foreground="White"        
+            />
+        <Label x:Name="SelectedUser"
+            Width="200"
+            Height="50"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="225,0,0,0"
+            Content="Admin zyZz"
+            FontSize="20"
+            FontWeight="Bold"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"   
+            Foreground="#FFA4BEC1" 
+              
+            />
+        <!--LISTBOX SECTION-->
+        <Grid Grid.Column="1" Width="150"  Height="250"            
+              Margin="0,0,0,0"            
+              VerticalAlignment="Top" HorizontalAlignment="Center">
+            <TextBox x:Name="NewUserNick"               
+                 Margin="0,120,0,0"
+                 TextWrapping="Wrap"                   
+                 Height="20"
+                 Width="150"
+                 Foreground="White"
+                 Background="#FF272C31"             
+                 Cursor="IBeam"
+                 MaxLength="18"
+                 BorderThickness="0" />
+            
+            
+
+            <ListBox x:Name="UsersList"               
+                 d:ItemsSource="{d:SampleData ItemCount=5}"
+                 HorizontalAlignment="Right" VerticalAlignment="Top"
+                
+                 Cursor="Hand" 
+                 Background="#FF272C31" Foreground="White"                
+                 Width="150" Height="150"
+                 BorderThickness="0"/>
+            
+            <Button x:Name="AddUser"
+                Content="Add user"
+                HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                Width="100" Height="25"
+                Foreground="White" Background="#FF497AA7"/>
+
+            <Button x:Name="RemoveUser"              
+                Content="X"
+                HorizontalAlignment="Right"  VerticalAlignment="Bottom"              
+                Width="25" Height="25"                            
+                VerticalContentAlignment="Center" HorizontalContentAlignment="Center"           
+                FontSize="12" Background="#FFA74949" Foreground="White"/>
+        </Grid>
     </Grid>
 </Page>

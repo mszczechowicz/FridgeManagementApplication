@@ -22,3 +22,11 @@ C:\Users\scela\source\repos\FridgeManagementApplication\obj\Debug\FridgeManageme
 C:\Users\scela\source\repos\FridgeManagementApplication\obj\Debug\FridgeManagementApplication.csproj.CoreCompileInputs.cache
 C:\Users\scela\source\repos\FridgeManagementApplication\obj\Debug\FridgeManagementApplication.exe
 C:\Users\scela\source\repos\FridgeManagementApplication\obj\Debug\FridgeManagementApplication.pdb
+C:\Users\scela\source\repos\FridgeManagementApplication\obj\Debug\FridgeManagementApplication_Content.g.cs
+C:\Users\scela\source\repos\FridgeManagementApplication\bin\Debug\FridgeManagementDB.mdf
+C:\Users\scela\source\repos\FridgeManagementApplication\bin\Debug\FridgeManagementDB_log.ldf
+C:\Users\scela\source\repos\FridgeManagementApplication\bin\Debug\EntityFramework.dll
+C:\Users\scela\source\repos\FridgeManagementApplication\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\scela\source\repos\FridgeManagementApplication\bin\Debug\EntityFramework.xml
+C:\Users\scela\source\repos\FridgeManagementApplication\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\scela\source\repos\FridgeManagementApplication\obj\Debug\FridgeManagementApplication.csproj.CopyComplete
