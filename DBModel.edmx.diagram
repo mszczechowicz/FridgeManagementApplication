@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0b4e9d65fe974b898d59df1e818dac63" Name="Diagram1">
+        <EntityTypeShape EntityType="FridgeManagementDBModel.Category" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FridgeManagementDBModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="FridgeManagementDBModel.Raports" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="FridgeManagementDBModel.Users" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="FridgeManagementDBModel.FK__Product__id_cate__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="FridgeManagementDBModel.FK__Raports__id_prod__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="FridgeManagementDBModel.FK__Raports__id_user__6383C8BA" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

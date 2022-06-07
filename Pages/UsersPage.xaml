@@ -9,17 +9,17 @@
       Title="UsersPage">
 
     <Grid>
-        
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition MinWidth="450" >
 
-                </ColumnDefinition>
-                <ColumnDefinition >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="450" >
+
+            </ColumnDefinition>
+            <ColumnDefinition >
 
 
-                </ColumnDefinition>
+            </ColumnDefinition>
 
-            </Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
         <!--WELCOME HEADERS-->
         <TextBlock Text="Welcome to FridgeAPP" Foreground="#FFA4BEC1" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <TextBlock Text="Select user from list'" Foreground="#FF626262" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,100,0,0"/>
@@ -77,9 +77,9 @@
                  Background="#FF272C31"             
                  Cursor="IBeam"
                  MaxLength="18"
-                 BorderThickness="0" />
-            
-            
+                 BorderThickness="0"  />
+
+
 
             <ListBox x:Name="UsersList"               
                  d:ItemsSource="{d:SampleData ItemCount=5}"
@@ -89,19 +89,19 @@
                  Background="#FF272C31" Foreground="White"                
                  Width="150" Height="150"
                  BorderThickness="0"/>
-            
+
             <Button x:Name="AddUser"
                 Content="Add user"
                 HorizontalAlignment="Left" VerticalAlignment="Bottom"
                 Width="100" Height="25"
-                Foreground="White" Background="#FF497AA7"/>
+                Foreground="White" Background="#FF497AA7" Click="AddUser_Click"/>
 
             <Button x:Name="RemoveUser"              
                 Content="X"
-                HorizontalAlignment="Right"  VerticalAlignment="Bottom"              
+                HorizontalAlignment="Right"  VerticalAlignment="Top"              
                 Width="25" Height="25"                            
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center"           
-                FontSize="12" Background="#FFA74949" Foreground="White"/>
+                FontSize="12" Background="#FFA74949" Foreground="White" Margin="0,225,0,0" Click="RemoveUser_Click"/>
         </Grid>
     </Grid>
 </Page>
