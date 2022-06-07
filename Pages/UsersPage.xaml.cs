@@ -46,9 +46,10 @@ namespace FridgeManagementApplication.Pages
 
             foreach (var usr in usrs)
             {
-            
+
                 //UsersList.ItemsSource = db.Users.ToList();
                 UsersList.Items.Add($"{usr.id}-{usr.user_name}");
+              
 
             }
 
@@ -84,7 +85,7 @@ namespace FridgeManagementApplication.Pages
             }
            
         }
-
+        //TODO : ADD ALETRS ARE U SURE?
         private void RemoveUser_Click(object sender, RoutedEventArgs e)
         {
             if (UsersList.SelectedItem != null)
@@ -98,5 +99,8 @@ namespace FridgeManagementApplication.Pages
             
             }
         }
+
+
+        //TODO : ADD GLOBAL SLECTION FOR USER
     }
 }

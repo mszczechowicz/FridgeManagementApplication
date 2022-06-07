@@ -23,6 +23,68 @@ namespace FridgeManagementApplication.Pages
         public CategoriesPage()
         {
             InitializeComponent();
+            UpdateCategoryList();
+
+        }
+
+
+
+        private void UpdateCategoryList()
+        {
+
+
+
+            CategoryList.Items.Clear();
+
+            FridgeManagementDBEntities db = new FridgeManagementDBEntities();
+
+            //IQueryable<Users> Users = db.Users.Where(el=>el.user_name == GLOBALNY.WYBRANEIDUSERA )
+
+            //IQueryable<Users> usrs = db.Users;
+
+            var cats = from c in db.Category
+                       select c;
+
+
+            foreach (var cat in cats)
+            {
+
+                //UsersList.ItemsSource = db.Users.ToList();
+                CategoryList.Items.Add($"{cat.id}-{cat.category_name}");
+
+            }
+
+        }
+
+        private void AddCategory_Click(object sender, RoutedEventArgs e)
+        {
+            if (NewCategoryText.Text != "")
+            {
+                FridgeManagementDBEntities db = new FridgeManagementDBEntities();
+                Category categoryObject = new Category()
+                {
+                    category_name = NewCategoryText.Text
+                };
+                db.Category.Add(categoryObject);
+                db.SaveChanges();
+                UpdateCategoryList();
+                NewCategoryText.Clear();
+
+            }
+        }
+
+        private void RemoveCategory_Click(object sender, RoutedEventArgs e)
+        {
+            if (CategoryList.SelectedItem != null)
+            {
+                FridgeManagementDBEntities db = new FridgeManagementDBEntities();
+                var selected = CategoryList.SelectedItem.ToString().Split('-')[1];
+                IQueryable<Category> catToRemove = db.Category.Where(ct => ct.category_name == selected);
+                db.Category.RemoveRange(catToRemove);
+                int result = db.SaveChanges();
+                UpdateCategoryList();
+
+            }
         }
     }
 }
