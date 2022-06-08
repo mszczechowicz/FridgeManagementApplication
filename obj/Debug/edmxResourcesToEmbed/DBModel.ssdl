@@ -24,7 +24,8 @@
     <Property Name="id_user" Type="int" />
     <Property Name="id_product" Type="int" />
     <Property Name="raport_quantity" Type="int" />
-    <Property Name="action_time" Type="time" Precision="7" />
+    <Property Name="add/remove" Type="varchar" MaxLength="50" />
+    <Property Name="action_time" Type="datetime" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -45,7 +46,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Raports__id_prod__6477ECF3">
+  <Association Name="FK__Raports__id_prod__17036CC0">
     <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
     <End Role="Raports" Type="Self.Raports" Multiplicity="*" />
     <ReferentialConstraint>
@@ -57,7 +58,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Raports__id_user__6383C8BA">
+  <Association Name="FK__Raports__id_user__160F4887">
     <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
     <End Role="Raports" Type="Self.Raports" Multiplicity="*" />
     <ReferentialConstraint>
@@ -78,11 +79,11 @@
       <End Role="Category" EntitySet="Category" />
       <End Role="Product" EntitySet="Product" />
     </AssociationSet>
-    <AssociationSet Name="FK__Raports__id_prod__6477ECF3" Association="Self.FK__Raports__id_prod__6477ECF3">
+    <AssociationSet Name="FK__Raports__id_prod__17036CC0" Association="Self.FK__Raports__id_prod__17036CC0">
       <End Role="Product" EntitySet="Product" />
       <End Role="Raports" EntitySet="Raports" />
     </AssociationSet>
-    <AssociationSet Name="FK__Raports__id_user__6383C8BA" Association="Self.FK__Raports__id_user__6383C8BA">
+    <AssociationSet Name="FK__Raports__id_user__160F4887" Association="Self.FK__Raports__id_user__160F4887">
       <End Role="Users" EntitySet="Users" />
       <End Role="Raports" EntitySet="Raports" />
     </AssociationSet>

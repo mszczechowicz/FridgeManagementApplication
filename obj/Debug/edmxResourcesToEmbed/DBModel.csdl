@@ -6,7 +6,7 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" />
     <Property Name="category_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Product" Relationship="Self.FK__Product__id_cate__60A75C0F" FromRole="Category" ToRole="Product" />
+    <NavigationProperty Name="Products" Relationship="Self.FK__Product__id_cate__60A75C0F" FromRole="Category" ToRole="Product" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -17,9 +17,9 @@
     <Property Name="quantity_product" Type="Int32" />
     <Property Name="id_category" Type="Int32" />
     <NavigationProperty Name="Category" Relationship="Self.FK__Product__id_cate__60A75C0F" FromRole="Product" ToRole="Category" />
-    <NavigationProperty Name="Raports" Relationship="Self.FK__Raports__id_prod__6477ECF3" FromRole="Product" ToRole="Raports" />
+    <NavigationProperty Name="Raports" Relationship="Self.FK__Raports__id_prod__17036CC0" FromRole="Product" ToRole="Raports" />
   </EntityType>
-  <EntityType Name="Raports">
+  <EntityType Name="Raport">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -27,17 +27,18 @@
     <Property Name="id_user" Type="Int32" />
     <Property Name="id_product" Type="Int32" />
     <Property Name="raport_quantity" Type="Int32" />
-    <Property Name="action_time" Type="Time" Precision="7" />
-    <NavigationProperty Name="Product" Relationship="Self.FK__Raports__id_prod__6477ECF3" FromRole="Raports" ToRole="Product" />
-    <NavigationProperty Name="Users" Relationship="Self.FK__Raports__id_user__6383C8BA" FromRole="Raports" ToRole="Users" />
+    <Property Name="add_remove" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="action_time" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Raports__id_prod__17036CC0" FromRole="Raports" ToRole="Product" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Raports__id_user__160F4887" FromRole="Raports" ToRole="Users" />
   </EntityType>
-  <EntityType Name="Users">
+  <EntityType Name="User">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" />
     <Property Name="user_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Raports" Relationship="Self.FK__Raports__id_user__6383C8BA" FromRole="Users" ToRole="Raports" />
+    <NavigationProperty Name="Raports" Relationship="Self.FK__Raports__id_user__160F4887" FromRole="Users" ToRole="Raports" />
   </EntityType>
   <Association Name="FK__Product__id_cate__60A75C0F">
     <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
@@ -51,9 +52,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Raports__id_prod__6477ECF3">
+  <Association Name="FK__Raports__id_prod__17036CC0">
     <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
-    <End Role="Raports" Type="Self.Raports" Multiplicity="*" />
+    <End Role="Raports" Type="Self.Raport" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Product">
         <PropertyRef Name="id" />
@@ -63,9 +64,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Raports__id_user__6383C8BA">
-    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
-    <End Role="Raports" Type="Self.Raports" Multiplicity="*" />
+  <Association Name="FK__Raports__id_user__160F4887">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Raports" Type="Self.Raport" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Users">
         <PropertyRef Name="id" />
@@ -76,19 +77,19 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="FridgeManagementDBEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Category" EntityType="Self.Category" />
-    <EntitySet Name="Product" EntityType="Self.Product" />
-    <EntitySet Name="Raports" EntityType="Self.Raports" />
-    <EntitySet Name="Users" EntityType="Self.Users" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="Raports" EntityType="Self.Raport" />
+    <EntitySet Name="Users" EntityType="Self.User" />
     <AssociationSet Name="FK__Product__id_cate__60A75C0F" Association="Self.FK__Product__id_cate__60A75C0F">
-      <End Role="Category" EntitySet="Category" />
-      <End Role="Product" EntitySet="Product" />
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Product" EntitySet="Products" />
     </AssociationSet>
-    <AssociationSet Name="FK__Raports__id_prod__6477ECF3" Association="Self.FK__Raports__id_prod__6477ECF3">
-      <End Role="Product" EntitySet="Product" />
+    <AssociationSet Name="FK__Raports__id_prod__17036CC0" Association="Self.FK__Raports__id_prod__17036CC0">
+      <End Role="Product" EntitySet="Products" />
       <End Role="Raports" EntitySet="Raports" />
     </AssociationSet>
-    <AssociationSet Name="FK__Raports__id_user__6383C8BA" Association="Self.FK__Raports__id_user__6383C8BA">
+    <AssociationSet Name="FK__Raports__id_user__160F4887" Association="Self.FK__Raports__id_user__160F4887">
       <End Role="Users" EntitySet="Users" />
       <End Role="Raports" EntitySet="Raports" />
     </AssociationSet>

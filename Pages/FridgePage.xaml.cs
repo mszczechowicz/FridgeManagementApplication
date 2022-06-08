@@ -31,7 +31,7 @@ namespace FridgeManagementApplication.Pages
         {
             FridgeList.Items.Clear();
 
-            FridgeManagementDBEntities db = new FridgeManagementDBEntities();
+            FridgeMgDBEntities db = new FridgeMgDBEntities();
 
             //IQueryable<Users> Users = db.Users.Where(el=>el.user_name == GLOBALNY.WYBRANEIDUSERA )
 
@@ -53,7 +53,7 @@ namespace FridgeManagementApplication.Pages
         {
             CategoryList.Items.Clear();
 
-            FridgeManagementDBEntities db = new FridgeManagementDBEntities();
+            FridgeMgDBEntities db = new FridgeMgDBEntities();
 
             //IQueryable<Users> Users = db.Users.Where(el=>el.user_name == GLOBALNY.WYBRANEIDUSERA )
 
@@ -79,8 +79,8 @@ namespace FridgeManagementApplication.Pages
         {
             if (NewNameText.Text != "" && QuantityText.Text != "" && CategoryList.SelectedItem != null)               
             {
-                FridgeManagementDBEntities db = new FridgeManagementDBEntities();
-               // int id_cat = CategoryList.SelectedItem.ToString()
+                 FridgeMgDBEntities db = new FridgeMgDBEntities();
+                // int id_cat = CategoryList.SelectedItem.ToString()
 
                 var selectedCat = CategoryList.SelectedItem.ToString().Split('-')[1];
                 IQueryable<Category> cat = db.Category.Where(el => el.category_name == selectedCat);
@@ -105,13 +105,13 @@ namespace FridgeManagementApplication.Pages
         }
         private string findCategory(long id)
         {
-            FridgeManagementDBEntities db = new FridgeManagementDBEntities();
+            FridgeMgDBEntities db = new FridgeMgDBEntities();
             IQueryable<Category> category = db.Category.Where(el => el.id == id);
             return category.First().category_name;
         }
         private int findCategoryID(string category)
         {
-            FridgeManagementDBEntities db = new FridgeManagementDBEntities();
+            FridgeMgDBEntities db = new FridgeMgDBEntities();
             IQueryable<Category> categories = db.Category.Where(el => el.category_name == category);
             return categories.First().id;
         }
@@ -120,7 +120,7 @@ namespace FridgeManagementApplication.Pages
         {
             if (FridgeList.SelectedItem != null && QuantityToRemove.Text != "")
             {
-                FridgeManagementDBEntities db = new FridgeManagementDBEntities();
+                FridgeMgDBEntities db = new FridgeMgDBEntities();
 
                 var selectedItem = FridgeList.SelectedItem.ToString().Split('-');
 

@@ -33,13 +33,14 @@ namespace FridgeManagementApplication.Pages
         private void UpdateUsersList()
         {
             UsersList.Items.Clear();
-            
-            FridgeManagementDBEntities db = new FridgeManagementDBEntities();
+
+
+            FridgeMgDBEntities db = new FridgeMgDBEntities();
 
             //IQueryable<Users> Users = db.Users.Where(el=>el.user_name == GLOBALNY.WYBRANEIDUSERA )
 
             //IQueryable<Users> usrs = db.Users;
-                
+
             var usrs = from d in db.Users
                        select d;
             
@@ -68,7 +69,7 @@ namespace FridgeManagementApplication.Pages
 
             if (NewUserNick.Text != "")
             {
-                FridgeManagementDBEntities db = new FridgeManagementDBEntities();
+                FridgeMgDBEntities db = new FridgeMgDBEntities();
                 Users userObject = new Users()
                 {
                     user_name = NewUserNick.Text
@@ -90,7 +91,7 @@ namespace FridgeManagementApplication.Pages
         {
             if (UsersList.SelectedItem != null)
             {
-                FridgeManagementDBEntities db = new FridgeManagementDBEntities();
+                FridgeMgDBEntities db = new FridgeMgDBEntities();
                 var selected = UsersList.SelectedItem.ToString().Split('-')[1];
                 IQueryable<Users> userToRemove = db.Users.Where(el => el.user_name == selected);
                 db.Users.RemoveRange(userToRemove);

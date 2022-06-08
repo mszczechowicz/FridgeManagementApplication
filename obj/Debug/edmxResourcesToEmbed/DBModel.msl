@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="FridgeManagementDBModelStoreContainer" CdmEntityContainer="FridgeManagementDBEntities">
-    <EntitySetMapping Name="Category">
+    <EntitySetMapping Name="Categories">
       <EntityTypeMapping TypeName="FridgeManagementDBModel.Category">
         <MappingFragment StoreEntitySet="Category">
           <ScalarProperty Name="id" ColumnName="id" />
@@ -9,7 +9,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Product">
+    <EntitySetMapping Name="Products">
       <EntityTypeMapping TypeName="FridgeManagementDBModel.Product">
         <MappingFragment StoreEntitySet="Product">
           <ScalarProperty Name="id" ColumnName="id" />
@@ -20,18 +20,19 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Raports">
-      <EntityTypeMapping TypeName="FridgeManagementDBModel.Raports">
+      <EntityTypeMapping TypeName="FridgeManagementDBModel.Raport">
         <MappingFragment StoreEntitySet="Raports">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="id_user" ColumnName="id_user" />
           <ScalarProperty Name="id_product" ColumnName="id_product" />
           <ScalarProperty Name="raport_quantity" ColumnName="raport_quantity" />
+          <ScalarProperty Name="add_remove" ColumnName="add/remove" />
           <ScalarProperty Name="action_time" ColumnName="action_time" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="FridgeManagementDBModel.Users">
+      <EntityTypeMapping TypeName="FridgeManagementDBModel.User">
         <MappingFragment StoreEntitySet="Users">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="user_name" ColumnName="user_name" />

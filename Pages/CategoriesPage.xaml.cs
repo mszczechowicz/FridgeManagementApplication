@@ -36,7 +36,8 @@ namespace FridgeManagementApplication.Pages
 
             CategoryList.Items.Clear();
 
-            FridgeManagementDBEntities db = new FridgeManagementDBEntities();
+          
+            FridgeMgDBEntities db = new FridgeMgDBEntities();
 
             //IQueryable<Users> Users = db.Users.Where(el=>el.user_name == GLOBALNY.WYBRANEIDUSERA )
 
@@ -60,7 +61,7 @@ namespace FridgeManagementApplication.Pages
         {
             if (NewCategoryText.Text != "")
             {
-                FridgeManagementDBEntities db = new FridgeManagementDBEntities();
+                FridgeMgDBEntities db = new FridgeMgDBEntities();
                 Category categoryObject = new Category()
                 {
                     category_name = NewCategoryText.Text
@@ -77,7 +78,7 @@ namespace FridgeManagementApplication.Pages
         {
             if (CategoryList.SelectedItem != null)
             {
-                FridgeManagementDBEntities db = new FridgeManagementDBEntities();
+                FridgeMgDBEntities db = new FridgeMgDBEntities();
                 var selected = CategoryList.SelectedItem.ToString().Split('-')[1];
                 IQueryable<Category> catToRemove = db.Category.Where(ct => ct.category_name == selected);
                 db.Category.RemoveRange(catToRemove);

@@ -31,7 +31,7 @@ namespace FridgeManagementApplication.Pages
         {
             RaportsList.Items.Clear();
 
-            FridgeManagementDBEntities db = new FridgeManagementDBEntities();
+            FridgeMgDBEntities db = new FridgeMgDBEntities();
 
             //IQueryable<Users> Users = db.Users.Where(el=>el.user_name == GLOBALNY.WYBRANEIDUSERA )
 
@@ -45,7 +45,7 @@ namespace FridgeManagementApplication.Pages
             {
 
                 //UsersList.ItemsSource = db.Users.ToList();
-                RaportsList.Items.Add($"{eve.id}-{eve.Users.user_name}-add/remove-{eve.raport_quantity}-{eve.Product.product_name}-{eve.action_time}");
+                RaportsList.Items.Add($"{eve.id}-{eve.Users.user_name}-{eve}-{eve.raport_quantity}-{eve.Product.product_name}-{eve.action_time}");
 
             }
 
