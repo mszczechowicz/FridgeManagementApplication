@@ -98,6 +98,7 @@
     <Compile Include="Raports.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SelectedHolder.cs" />
     <Compile Include="Users.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>

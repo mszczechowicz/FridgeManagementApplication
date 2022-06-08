@@ -88,7 +88,7 @@
                  Cursor="Hand" 
                  Background="#FF272C31" Foreground="White"                
                  Width="150" Height="150"
-                 BorderThickness="0"/>
+                 BorderThickness="0" SelectionChanged="UsersList_SelectionChanged"/>
 
             <Button x:Name="AddUser"
                 Content="Add user"
