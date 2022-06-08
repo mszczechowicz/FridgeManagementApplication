@@ -43,10 +43,10 @@ namespace FridgeManagementApplication.Pages
 
             foreach (var it in items)
             {               
-                //UsersList.ItemsSource = db.Users.ToList();
+               //FridgeList.ItemsSource = db.Product.ToList();
                 FridgeList.Items.Add($"{it.id}-{it.product_name}-{it.quantity_product}-{it.Category.category_name}");
             }
-
+            QuantityToRemove.Clear();
         }
 
         private void UpdateCategoryList()
@@ -72,12 +72,6 @@ namespace FridgeManagementApplication.Pages
             }
 
         }
-
-
-
-
-
-
 
 
 
@@ -121,18 +115,23 @@ namespace FridgeManagementApplication.Pages
             IQueryable<Category> categories = db.Category.Where(el => el.category_name == category);
             return categories.First().id;
         }
-
+        //TODO ADD SUMMARIES 
         private void RemoveItem_Click(object sender, RoutedEventArgs e)
         {
             if (FridgeList.SelectedItem != null && QuantityToRemove.Text != "")
             {
                 FridgeManagementDBEntities db = new FridgeManagementDBEntities();
+
                 var selectedItem = FridgeList.SelectedItem.ToString().Split('-');
+
                 var selectedProduct = selectedItem[1];
-                var selectquant = selectedProduct[2];
+
                 IQueryable<Product> productUpdate = db.Product.Where(pr => pr.product_name == selectedProduct);
+                var prod = productUpdate.First();
+
                 int quant = Int32.Parse(QuantityToRemove.Text);
 
+                int selectquant = Int32.Parse(selectedItem[2]);
                 int result = selectquant - quant;
                 if (result == 0)
                 {
@@ -141,11 +140,12 @@ namespace FridgeManagementApplication.Pages
                     UpdateFridge();
                 }
                 else if (result < 0)
+                {
                     MessageBox.Show("Invalid value");
+                }
                 else
                 {
-                 // IQueryable<Product> productvaluechange = db.Product.Where(pr => pr.product_name == selectedProduct).ToList().ForEach(pr => pr.quantity_product = quant);
-
+                    prod.quantity_product = result;
                 }
                 db.SaveChanges();
                 UpdateFridge();
