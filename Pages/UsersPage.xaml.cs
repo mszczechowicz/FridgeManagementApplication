@@ -94,7 +94,7 @@ namespace FridgeManagementApplication.Pages
                 var selected = UsersList.SelectedItem.ToString().Split('-')[1];
                 IQueryable<Users> userToRemove = db.Users.Where(el => el.user_name == selected);
                 db.Users.RemoveRange(userToRemove);
-                int result = db.SaveChanges();
+                db.SaveChanges();
                 UpdateUsersList();
             
             }

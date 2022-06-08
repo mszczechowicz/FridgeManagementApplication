@@ -9,6 +9,104 @@
       Title="FridgePage">
 
     <Grid>
-        <TextBlock Text="fridge" FontSize="40" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition>
+
+            </ColumnDefinition>
+            <ColumnDefinition Width="450">
+
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="270">
+
+            </RowDefinition>
+            <RowDefinition>
+
+            </RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="1" Text="Lodowka" Foreground="#FFA4BEC1" FontSize="32" VerticalAlignment="Top" HorizontalAlignment="Left" />
+
+        <Grid Grid.Column="0" Width="150"  Height="270"            
+              Margin="0,25,0,0"            
+              VerticalAlignment="Top" HorizontalAlignment="Center">
+            <TextBlock Text="Name:" Foreground="#FFA4BEC1" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            <TextBox x:Name="NewNameText"
+                 VerticalAlignment="Top"
+                 Margin="0,25,0,0"
+                 TextWrapping="Wrap"
+                 Height="25"
+                 Width="150"
+                 Foreground="White"
+                 Background="#FF272C31"
+                 FontSize="16"
+                 Cursor="IBeam"
+                 MaxLength="18"
+                 BorderThickness="0" />
+            <TextBlock Text="Quantity:" Foreground="#FFA4BEC1" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,50,0,0"/>
+            <TextBox x:Name="QuantityText"
+                 VerticalAlignment="Top"
+                 Margin="0,75,0,0"
+                 TextWrapping="Wrap"
+                 Height="25"
+                 Width="150"
+                 Foreground="White"
+                 Background="#FF272C31"
+                 FontSize="16"
+                 Cursor="IBeam"
+                 MaxLength="18"
+                 BorderThickness="0" />
+
+            <TextBlock Text="Category:" Foreground="#FFA4BEC1" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,100,0,0"/>
+            <ListBox x:Name="CategoryList"               
+                 d:ItemsSource="{d:SampleData ItemCount=5}"
+                 HorizontalAlignment="Center" VerticalAlignment="Center"
+                 Margin="0,100,0,0"
+                 FontSize="16"
+                 Cursor="Hand" 
+                 Background="#FF272C31" Foreground="White"                
+                 Width="150" Height="100"
+                 BorderThickness="0"/>
+
+
+        </Grid>
+        <Button x:Name="InsertToFridge" Grid.Row="1"
+                Content="Insert to fridge"
+                HorizontalAlignment="Center" VerticalAlignment="Top"
+                Width="150" Height="25"
+                 Foreground="White" Background="#FF497AA7" Click="InsertToFridge_Click" />
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Quantity:" Foreground="#FFA4BEC1" FontSize="18" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,0,0,0"/>
+        <TextBox x:Name="QuantityToRemove" Grid.Row="1" Grid.Column="1"
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Center"
+                 Margin="0,0,0,0"
+                 TextWrapping="Wrap"
+                 Height="25"
+                 Width="50"
+                 Foreground="White"
+                 Background="#FF272C31"
+                 FontSize="16"
+                 Cursor="IBeam"
+                 MaxLength="18"
+                 BorderThickness="0" />
+        <Button x:Name="RemoveItem" Grid.Row="1"
+                 Grid.Column="1"
+                Content="Remove from fridge"
+                HorizontalAlignment="Right"  VerticalAlignment="Top"              
+                Width="150" Height="25"
+                Margin="0,0,25,0"              
+                VerticalContentAlignment="Center" HorizontalContentAlignment="Center"           
+                FontSize="12" Background="#FFA74949" Foreground="White" Click="RemoveItem_Click"/>
+        <ListBox x:Name="FridgeList" Grid.Column="1"              
+                 d:ItemsSource="{d:SampleData ItemCount=5}"
+                 
+                 HorizontalAlignment="Left" VerticalAlignment="Top"
+                 FontSize="16"
+                 Padding="25"
+                 Margin="0,50,0,0"
+                 Background="#39556F" Foreground="White"                
+                 Width="420" Height="200"
+                 BorderThickness="5" BorderBrush="#497AA7"/>
     </Grid>
 </Page>

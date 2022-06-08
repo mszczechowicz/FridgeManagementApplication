@@ -81,7 +81,7 @@ namespace FridgeManagementApplication.Pages
                 var selected = CategoryList.SelectedItem.ToString().Split('-')[1];
                 IQueryable<Category> catToRemove = db.Category.Where(ct => ct.category_name == selected);
                 db.Category.RemoveRange(catToRemove);
-                int result = db.SaveChanges();
+                db.SaveChanges();
                 UpdateCategoryList();
 
             }
