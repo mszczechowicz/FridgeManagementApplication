@@ -13,4 +13,6 @@ namespace FridgeManagementApplication
 
         public static int SelectedHolderId { get; set; }
     }
+
+    
 }

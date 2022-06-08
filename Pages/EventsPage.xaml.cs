@@ -23,6 +23,32 @@ namespace FridgeManagementApplication.Pages
         public EventsPage()
         {
             InitializeComponent();
+            UpdateEventRaports();
+        }
+
+
+        private void UpdateEventRaports()
+        {
+            RaportsList.Items.Clear();
+
+            FridgeManagementDBEntities db = new FridgeManagementDBEntities();
+
+            //IQueryable<Users> Users = db.Users.Where(el=>el.user_name == GLOBALNY.WYBRANEIDUSERA )
+
+            //IQueryable<Users> usrs = db.Users;
+
+            var events = from e in db.Raports
+                       select e;
+
+
+            foreach (var eve in events)
+            {
+
+                //UsersList.ItemsSource = db.Users.ToList();
+                RaportsList.Items.Add($"{eve.id}-{eve.Users.user_name}-add/remove-{eve.raport_quantity}-{eve.Product.product_name}-{eve.action_time}");
+
+            }
+
         }
     }
 }
