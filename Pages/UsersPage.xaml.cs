@@ -24,9 +24,9 @@ namespace FridgeManagementApplication.Pages
         {
             InitializeComponent();
 
-
+            SelectedUser.Content = SelectedHolder.SelectedHolderName;
             UpdateUsersList();
-
+           
 
         }
 
@@ -101,16 +101,27 @@ namespace FridgeManagementApplication.Pages
             }
         }
 
+        
+
         private void UsersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (UsersList.SelectedItem != null)
             {
                 string thisUser_name = UsersList.SelectedItem.ToString().Split('-')[1];
                 string thisUser_id = UsersList.SelectedItem.ToString().Split('-')[0];
-                SelectedUser.Content = thisUser_name;
+
 
                 SelectedHolder.SelectedHolderName = thisUser_name;
                 SelectedHolder.SelectedHolderId = int.Parse(thisUser_id);
+                SelectedUser.Content = SelectedHolder.SelectedHolderName;
+            }
+            else
+            {
+                SelectedUser.Content = "";
+
+                SelectedHolder.SelectedHolderName = "";
+                SelectedHolder.SelectedHolderId = 0;
+            
             }
            
         }

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace FridgeManagementApplication.Pages
 {
     /// <summary>
@@ -20,6 +21,8 @@ namespace FridgeManagementApplication.Pages
     /// </summary>
     public partial class FridgePage : Page
     {
+        
+
         public FridgePage()
         {
             InitializeComponent();
@@ -98,12 +101,44 @@ namespace FridgeManagementApplication.Pages
                 db.Product.Add(productObject);
                 db.SaveChanges();
                 UpdateFridge();
+               
+
+                // ADDING RAPORT 
+
+                Raports raport = new Raports()
+                {
+
+                    id_user = SelectedHolder.SelectedHolderId,
+                    id_product = findProductID(productObject.product_name),
+                    raport_quantity = Int32.Parse(QuantityText.Text),
+                    add_remove = "ADDED",
+                    action_time = DateTime.Now
+
+
+
+
+                };
+                db.Raports.Add(raport);
+                db.SaveChanges();
                 NewNameText.Clear();
                 QuantityText.Clear();
 
+
             }
         }
-        private string findCategory(long id)
+
+        //ADDDING RAPORT 2
+        private  int findProductID(string productname)
+        {
+            FridgeMgDBEntities db = new FridgeMgDBEntities();
+            IQueryable<Product> product = db.Product.Where(p=> p.product_name ==productname );
+
+            return product.First().id;
+        }
+
+
+
+        private string findCategory(int id)
         {
             FridgeMgDBEntities db = new FridgeMgDBEntities();
             IQueryable<Category> category = db.Category.Where(el => el.id == id);
