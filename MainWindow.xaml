@@ -8,6 +8,9 @@
         Title="FridgeAPP"
         FontFamily="Comic Sans MS"
         Icon="Icon.ico"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        BorderThickness="2" BorderBrush="#FF41688C"
         Height="480" Width="720"
         MaxHeight="480" MaxWidth="720" MinHeight="480" MinWidth="720"
         Background="#FF232323">

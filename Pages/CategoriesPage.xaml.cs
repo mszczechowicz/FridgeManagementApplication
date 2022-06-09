@@ -32,9 +32,9 @@ namespace FridgeManagementApplication.Pages
         /// </summary>
         private void UpdateCategoryList()
         {
-            CategoryList.Items.Clear();        
+            CategoryList.Items.Clear();
             FridgeMgDBEntities db = new FridgeMgDBEntities();
-            
+
             IQueryable<Category> cats = db.Category;
             foreach (var cat in cats)
             {
@@ -54,10 +54,19 @@ namespace FridgeManagementApplication.Pages
                 {
                     category_name = NewCategoryText.Text
                 };
-                db.Category.Add(categoryObject);
-                db.SaveChanges();
-                UpdateCategoryList();
-                NewCategoryText.Clear();
+                bool catMatch = db.Category.Any(ct => ct.category_name == NewCategoryText.Text);
+
+                if (catMatch)
+                {
+                    MessageBox.Show("Category already exist.");
+                }
+                else
+                {
+                    db.Category.Add(categoryObject);
+                    db.SaveChanges();
+                    UpdateCategoryList();
+                    NewCategoryText.Clear();
+                }
             }
         }
 
@@ -72,15 +81,22 @@ namespace FridgeManagementApplication.Pages
 
                 var selected = CategoryList.SelectedItem.ToString().Split('-')[1];
                 IQueryable<Category> catToRemove = db.Category.Where(ct => ct.category_name == selected);
-
+                //TODO CANT REMOVE CATEGORY USAGE BY PRODUCT
 
                 if (MessageBox.Show("Are you sure want to remove category?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No) { }
 
                 else
                 {
-                    db.Category.RemoveRange(catToRemove);
-                    db.SaveChanges();
-                    UpdateCategoryList();
+                    try
+                    {
+                        db.Category.RemoveRange(catToRemove);
+                        db.SaveChanges();
+                        UpdateCategoryList();
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Category is in use. \r\nBefore deleting a category, please remove the products that contain it.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                 }
             }
         }

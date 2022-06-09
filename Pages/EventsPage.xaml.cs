@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,8 +26,10 @@ namespace FridgeManagementApplication.Pages
             InitializeComponent();
             UpdateEventRaports();
         }
-
-
+  
+        /// <summary>
+        /// Update ListBox with raports
+        /// </summary>
         private void UpdateEventRaports()
         {
             RaportsList.Items.Clear();
@@ -39,5 +42,13 @@ namespace FridgeManagementApplication.Pages
             }
 
         }
+
+        /// <summary>
+        /// Clear raports table
+        /// </summary>
+      
+
+        
+
     }
 }
