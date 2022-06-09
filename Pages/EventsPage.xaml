@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:FridgeManagementApplication.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="480" d:DesignWidth="720"
+      FontFamily="Comic Sans MS"
       Title="EventsPage">
 
     <Grid>

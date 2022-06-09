@@ -24,39 +24,27 @@ namespace FridgeManagementApplication.Pages
         {
             InitializeComponent();
             UpdateCategoryList();
-
         }
 
 
-
+        /// <summary>
+        /// Refresh Category ListBox Method
+        /// </summary>
         private void UpdateCategoryList()
         {
-
-
-
-            CategoryList.Items.Clear();
-
-          
+            CategoryList.Items.Clear();        
             FridgeMgDBEntities db = new FridgeMgDBEntities();
-
-            //IQueryable<Users> Users = db.Users.Where(el=>el.user_name == GLOBALNY.WYBRANEIDUSERA )
-
-            //IQueryable<Users> usrs = db.Users;
-
-            var cats = from c in db.Category
-                       select c;
-
-
+            
+            IQueryable<Category> cats = db.Category;
             foreach (var cat in cats)
             {
-
-                //UsersList.ItemsSource = db.Users.ToList();
                 CategoryList.Items.Add($"{cat.id}-{cat.category_name}");
-
             }
-
         }
 
+        /// <summary>
+        /// Adding new category Method
+        /// </summary>
         private void AddCategory_Click(object sender, RoutedEventArgs e)
         {
             if (NewCategoryText.Text != "")
@@ -70,21 +58,30 @@ namespace FridgeManagementApplication.Pages
                 db.SaveChanges();
                 UpdateCategoryList();
                 NewCategoryText.Clear();
-
             }
         }
 
+        /// <summary>
+        /// Remove Category Method
+        /// </summary>
         private void RemoveCategory_Click(object sender, RoutedEventArgs e)
         {
             if (CategoryList.SelectedItem != null)
             {
                 FridgeMgDBEntities db = new FridgeMgDBEntities();
+
                 var selected = CategoryList.SelectedItem.ToString().Split('-')[1];
                 IQueryable<Category> catToRemove = db.Category.Where(ct => ct.category_name == selected);
-                db.Category.RemoveRange(catToRemove);
-                db.SaveChanges();
-                UpdateCategoryList();
 
+
+                if (MessageBox.Show("Are you sure want to remove category?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No) { }
+
+                else
+                {
+                    db.Category.RemoveRange(catToRemove);
+                    db.SaveChanges();
+                    UpdateCategoryList();
+                }
             }
         }
     }

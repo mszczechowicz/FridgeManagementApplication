@@ -23,12 +23,11 @@ namespace FridgeManagementApplication.Pages
         public UsersPage()
         {
             InitializeComponent();
-
             SelectedUser.Content = SelectedHolder.SelectedHolderName;
             UpdateUsersList();
-           
 
         }
+
         /// <summary>
         /// UpdateUsersList Method
         /// </summary>
@@ -39,39 +38,25 @@ namespace FridgeManagementApplication.Pages
             UsersList.Items.Clear();
             FridgeMgDBEntities db = new FridgeMgDBEntities();
 
-            //IQueryable<Users> Users = db.Users.Where(el=>el.user_name == GLOBALNY.WYBRANEIDUSERA )
-
             IQueryable<Users> usrs = db.Users;
-
-           // var usrs = from d in db.Users
-               //        select d;
-            
 
             foreach (var usr in usrs)
             {
-
-                //UsersList.ItemsSource = db.Users.ToList();
                 UsersList.Items.Add($"{usr.id}-{usr.user_name}");
-              
-
             }
-
         }
 
-
-
-
-
-        //TODO : ADD USER BY ENTER
-        //TODO : ADD ALETRS ARE U SURE?
+        //TODO : ADD USER BY ENTER METHOD
+      
+        /// <summary>
+        /// AddUser Method
+        /// </summary>
         private void AddUser_Click(object sender, RoutedEventArgs e)
         {
-
-
-
             if (NewUserNick.Text != "")
             {
                 FridgeMgDBEntities db = new FridgeMgDBEntities();
+
                 Users userObject = new Users()
                 {
                     user_name = NewUserNick.Text
@@ -80,39 +65,46 @@ namespace FridgeManagementApplication.Pages
                 db.SaveChanges();
                 UpdateUsersList();
                 NewUserNick.Clear();
-             
-
-
-
-                
             }
-           
         }
-        //TODO : ADD ALETRS ARE U SURE?
+
+        //TODO : ADD ALETR "are u sure want to remove user"
+        //TODO : CANT REMOVE USER INSIDE RAPORTS TABLE
+        /// <summary>
+        /// RemoveUser Method
+        /// </summary>
         private void RemoveUser_Click(object sender, RoutedEventArgs e)
         {
             if (UsersList.SelectedItem != null)
             {
                 FridgeMgDBEntities db = new FridgeMgDBEntities();
+
                 var selected = UsersList.SelectedItem.ToString().Split('-')[1];
                 IQueryable<Users> userToRemove = db.Users.Where(el => el.user_name == selected);
-                db.Users.RemoveRange(userToRemove);
-                db.SaveChanges();
-                UpdateUsersList();
-            
+               
+
+                if (MessageBox.Show("Are you sure want to remove User?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No) { }
+
+                else
+                {
+                    db.Users.RemoveRange(userToRemove);
+                    db.SaveChanges();
+                    UpdateUsersList();
+                }
+
+
             }
         }
 
-        
-
+        /// <summary>
+        /// Selectinguser Method
+        /// </summary>
         private void UsersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (UsersList.SelectedItem != null)
             {
                 string thisUser_name = UsersList.SelectedItem.ToString().Split('-')[1];
                 string thisUser_id = UsersList.SelectedItem.ToString().Split('-')[0];
-
-
                 SelectedHolder.SelectedHolderName = thisUser_name;
                 SelectedHolder.SelectedHolderId = int.Parse(thisUser_id);
                 SelectedUser.Content = SelectedHolder.SelectedHolderName;
@@ -120,15 +112,9 @@ namespace FridgeManagementApplication.Pages
             else
             {
                 SelectedUser.Content = "";
-
                 SelectedHolder.SelectedHolderName = "";
                 SelectedHolder.SelectedHolderId = 0;
-            
             }
-           
         }
-
-
-        //TODO : ADD GLOBAL SLECTION FOR USER
     }
 }

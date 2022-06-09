@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FridgeManagementApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="480" Width="720" Background="#FF232323">
+        Title="FridgeAPP"
+        FontFamily="Comic Sans MS"
+        Height="480" Width="720" Background="#FF232323">
     <Grid>
 
         <StackPanel  Orientation="Horizontal" HorizontalAlignment="Left"                     
@@ -62,6 +64,6 @@
             </TextBlock>
         </Label>
 
-        <Frame x:Name="Main" NavigationUIVisibility="Hidden" Margin="0,100,0,0" />
+        <Frame x:Name="Main" NavigationUIVisibility="Hidden" Margin="0,100,0,0"/>
     </Grid>
 </Window>

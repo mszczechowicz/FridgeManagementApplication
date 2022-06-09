@@ -30,23 +30,12 @@ namespace FridgeManagementApplication.Pages
         private void UpdateEventRaports()
         {
             RaportsList.Items.Clear();
-
             FridgeMgDBEntities db = new FridgeMgDBEntities();
 
-            //IQueryable<Users> Users = db.Users.Where(el=>el.user_name == GLOBALNY.WYBRANEIDUSERA )
-
-            //IQueryable<Users> usrs = db.Users;
-
-            var events = (from e in db.Raports
-                          select e).OrderByDescending(e => e.action_time);
-
-
+            IQueryable<Raports> events = db.Raports.OrderByDescending(e=>e.action_time);
             foreach (var eve in events)
             {
-
-                //UsersList.ItemsSource = db.Users.ToList();
                 RaportsList.Items.Add($"{eve.id}-{eve.Users.user_name}-{eve.add_remove}-{eve.raport_quantity}-{eve.product_name_rap}-{eve.action_time}");
-
             }
 
         }
