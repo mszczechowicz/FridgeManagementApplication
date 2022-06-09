@@ -29,20 +29,22 @@ namespace FridgeManagementApplication.Pages
            
 
         }
+        /// <summary>
+        /// UpdateUsersList Method
+        /// </summary>
+
 
         private void UpdateUsersList()
         {
             UsersList.Items.Clear();
-
-
             FridgeMgDBEntities db = new FridgeMgDBEntities();
 
             //IQueryable<Users> Users = db.Users.Where(el=>el.user_name == GLOBALNY.WYBRANEIDUSERA )
 
-            //IQueryable<Users> usrs = db.Users;
+            IQueryable<Users> usrs = db.Users;
 
-            var usrs = from d in db.Users
-                       select d;
+           // var usrs = from d in db.Users
+               //        select d;
             
 
             foreach (var usr in usrs)

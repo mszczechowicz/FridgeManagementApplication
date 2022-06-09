@@ -33,17 +33,40 @@ namespace FridgeManagementApplication
 
         private void FridgePage_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Pages.FridgePage();
+            if (SelectedHolder.SelectedHolderName != "")
+            {
+                Main.Content = new Pages.FridgePage();
+            }
+            else
+            {
+                MessageBox.Show("Select User from List");
+            }
         }
 
         private void CategoriesPage_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Pages.CategoriesPage();
+
+
+            if (SelectedHolder.SelectedHolderName != "")
+            {
+                Main.Content = new Pages.CategoriesPage();
+            }
+            else
+            {
+                MessageBox.Show("Select User from List");
+            }
         }
 
         private void EventsPage_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Pages.EventsPage();
+            if (SelectedHolder.SelectedHolderName != "")
+            {
+                Main.Content = new Pages.EventsPage();
+            }
+            else
+            {
+                MessageBox.Show("Select User from List");
+            }
         }
     }
 }
