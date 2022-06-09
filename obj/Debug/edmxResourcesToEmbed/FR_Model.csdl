@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FridgeManagementDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="category_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Product__id_cate__2CF2ADDF" FromRole="Category" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="product_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="quantity_product" Type="Int32" />
+    <Property Name="id_category" Type="Int32" />
+    <NavigationProperty Name="Category" Relationship="Self.FK__Product__id_cate__2CF2ADDF" FromRole="Product" ToRole="Category" />
+  </EntityType>
+  <EntityType Name="Raports">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_user" Type="Int32" />
+    <Property Name="product_name_rap" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="raport_quantity" Type="Int32" />
+    <Property Name="add_remove" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="action_time" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Raports__id_user__32AB8735" FromRole="Raports" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Raports" Relationship="Self.FK__Raports__id_user__32AB8735" FromRole="Users" ToRole="Raports" />
+  </EntityType>
+  <Association Name="FK__Product__id_cate__2CF2ADDF">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="id_category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Raports__id_user__32AB8735">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Raports" Type="Self.Raports" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Raports">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FridgeMgDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Category" EntityType="Self.Category" />
+    <EntitySet Name="Product" EntityType="Self.Product" />
+    <EntitySet Name="Raports" EntityType="Self.Raports" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK__Product__id_cate__2CF2ADDF" Association="Self.FK__Product__id_cate__2CF2ADDF">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Raports__id_user__32AB8735" Association="Self.FK__Raports__id_user__32AB8735">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Raports" EntitySet="Raports" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

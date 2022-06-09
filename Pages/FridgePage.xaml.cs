@@ -109,14 +109,10 @@ namespace FridgeManagementApplication.Pages
                 {
 
                     id_user = SelectedHolder.SelectedHolderId,
-                    id_product = findProductID(productObject.product_name),
+                    product_name_rap =productObject.product_name ,
                     raport_quantity = Int32.Parse(QuantityText.Text),
                     add_remove = "ADDED",
                     action_time = DateTime.Now
-
-
-
-
                 };
                 db.Raports.Add(raport);
                 db.SaveChanges();
@@ -170,6 +166,19 @@ namespace FridgeManagementApplication.Pages
                 int result = selectquant - quant;
                 if (result == 0)
                 {
+                    Raports raport = new Raports()
+                    {
+
+                        id_user = SelectedHolder.SelectedHolderId,
+                        product_name_rap = prod.product_name ,
+                        raport_quantity = quant,
+                        add_remove = "REMOVE",
+                        action_time = DateTime.Now
+                    };
+
+                    db.SaveChanges();
+
+
                     db.Product.RemoveRange(productUpdate);
                     db.SaveChanges();
                     UpdateFridge();
@@ -180,13 +189,30 @@ namespace FridgeManagementApplication.Pages
                 }
                 else
                 {
+                    Raports raport = new Raports()
+                    {
+
+                        id_user = SelectedHolder.SelectedHolderId,
+                        product_name_rap = prod.product_name,
+                        raport_quantity = quant,
+                        add_remove = "REMOVE",
+                        action_time = DateTime.Now
+                    };
+
                     prod.quantity_product = result;
+                    db.SaveChanges();
+
+
+
                 }
                 db.SaveChanges();
                 UpdateFridge();
 
+                //REMOVEING RAPORT
+
+               
             }
-        }
+        }    
        
 
 

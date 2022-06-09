@@ -14,19 +14,11 @@ namespace FridgeManagementApplication
     
     public partial class Product
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
-        {
-            this.Raports = new HashSet<Raports>();
-        }
-    
         public int id { get; set; }
         public string product_name { get; set; }
         public Nullable<int> quantity_product { get; set; }
         public Nullable<int> id_category { get; set; }
     
         public virtual Category Category { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Raports> Raports { get; set; }
     }
 }

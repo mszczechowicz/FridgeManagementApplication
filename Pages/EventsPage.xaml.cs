@@ -45,7 +45,7 @@ namespace FridgeManagementApplication.Pages
             {
 
                 //UsersList.ItemsSource = db.Users.ToList();
-                RaportsList.Items.Add($"{eve.id}-{eve.Users.user_name}-{eve.add_remove}-{eve.raport_quantity}-{eve.Product.product_name}-{eve.action_time}");
+                RaportsList.Items.Add($"{eve.id}-{eve.Users.user_name}-{eve.add_remove}-{eve.raport_quantity}-{eve.product_name_rap}-{eve.action_time}");
 
             }
 

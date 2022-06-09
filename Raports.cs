@@ -16,12 +16,11 @@ namespace FridgeManagementApplication
     {
         public int id { get; set; }
         public Nullable<int> id_user { get; set; }
-        public Nullable<int> id_product { get; set; }
+        public string product_name_rap { get; set; }
         public Nullable<int> raport_quantity { get; set; }
         public string add_remove { get; set; }
         public Nullable<System.DateTime> action_time { get; set; }
     
-        public virtual Product Product { get; set; }
         public virtual Users Users { get; set; }
     }
 }

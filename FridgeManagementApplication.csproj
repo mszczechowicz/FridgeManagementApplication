@@ -85,32 +85,32 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Category.cs">
-      <DependentUpon>FrDB_model.tt</DependentUpon>
+      <DependentUpon>FR_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="FrDB_model.Context.cs">
+    <Compile Include="FR_Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FrDB_model.Context.tt</DependentUpon>
+      <DependentUpon>FR_Model.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="FrDB_model.cs">
+    <Compile Include="FR_Model.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FrDB_model.tt</DependentUpon>
+      <DependentUpon>FR_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="FrDB_model.Designer.cs">
+    <Compile Include="FR_Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FrDB_model.edmx</DependentUpon>
+      <DependentUpon>FR_Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>FrDB_model.tt</DependentUpon>
+      <DependentUpon>FR_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Raports.cs">
-      <DependentUpon>FrDB_model.tt</DependentUpon>
+      <DependentUpon>FR_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="SelectedHolder.cs" />
     <Compile Include="Users.cs">
-      <DependentUpon>FrDB_model.tt</DependentUpon>
+      <DependentUpon>FR_Model.tt</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -171,12 +171,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="FrDB_model.edmx">
+    <EntityDeploy Include="FR_Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FrDB_model.Designer.cs</LastGenOutput>
+      <LastGenOutput>FR_Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="FrDB_model.edmx.diagram">
-      <DependentUpon>FrDB_model.edmx</DependentUpon>
+    <None Include="FR_Model.edmx.diagram">
+      <DependentUpon>FR_Model.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -188,22 +188,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FrDB_model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FrDB_model.edmx</DependentUpon>
-      <LastGenOutput>FrDB_model.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="FrDB_model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FrDB_model.edmx</DependentUpon>
-      <LastGenOutput>FrDB_model.cs</LastGenOutput>
-    </Content>
     <Content Include="FridgeManagementDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="FridgeManagementDB_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>FridgeManagementDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="FR_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FR_Model.edmx</DependentUpon>
+      <LastGenOutput>FR_Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="FR_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FR_Model.edmx</DependentUpon>
+      <LastGenOutput>FR_Model.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

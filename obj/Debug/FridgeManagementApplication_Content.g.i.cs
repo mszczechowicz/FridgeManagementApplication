@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("frdb_model.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("frdb_model.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fridgemanagementdb.mdf")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fridgemanagementdb_log.ldf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fr_model.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fr_model.tt")]
 
 
