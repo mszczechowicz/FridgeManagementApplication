@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 
 namespace FridgeManagementApplication
 {
+    //TODO : THIS ELEMENT ALREADY EXIST
     /// <summary>
     /// Logika interakcji dla klasy MainWindow.xaml
     /// </summary>

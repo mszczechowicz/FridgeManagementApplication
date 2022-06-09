@@ -10,7 +10,7 @@
       Title="EventsPage">
 
     <Grid>
-        <TextBlock Text="Eventy" Foreground="#FFA4BEC1" FontSize="32" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,0,0,0" />
+        <TextBlock Text="Events" Foreground="#FFA4BEC1" FontSize="32" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,0,0,0" />
 
         <ListBox x:Name="RaportsList" Grid.Column="2"              
                  d:ItemsSource="{d:SampleData ItemCount=5}"

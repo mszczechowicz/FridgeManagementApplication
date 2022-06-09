@@ -27,7 +27,7 @@
             </RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="1" Text="Lodowka" Foreground="#FFA4BEC1" FontSize="32" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <TextBlock Grid.Column="1" Text="Fridge" Foreground="#FFA4BEC1" FontSize="32" VerticalAlignment="Top" HorizontalAlignment="Left" />
 
         <Grid Grid.Column="0" Width="150"  Height="270"            
               Margin="0,25,0,0"            

@@ -7,7 +7,10 @@
         mc:Ignorable="d"
         Title="FridgeAPP"
         FontFamily="Comic Sans MS"
-        Height="480" Width="720" Background="#FF232323">
+        Icon="Icon.ico"
+        Height="480" Width="720"
+        MaxHeight="480" MaxWidth="720" MinHeight="480" MinWidth="720"
+        Background="#FF232323">
     <Grid>
 
         <StackPanel  Orientation="Horizontal" HorizontalAlignment="Left"                     
@@ -50,7 +53,7 @@
         <Label x:Name="LOGO"             
                HorizontalAlignment="Right" VerticalAlignment="Top"
                Height="50"  Width="270"
-               Margin="227,0,0,0"                           
+               Margin="227,25,0,0"                           
                FontSize="24" FontWeight="Normal" Foreground="#FFA4BEC1"               
                Background="{x:Null}"              
                VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
