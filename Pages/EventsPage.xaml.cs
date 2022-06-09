@@ -37,8 +37,8 @@ namespace FridgeManagementApplication.Pages
 
             //IQueryable<Users> usrs = db.Users;
 
-            var events = from e in db.Raports
-                       select e;
+            var events = (from e in db.Raports
+                          select e).OrderByDescending(e => e.action_time);
 
 
             foreach (var eve in events)

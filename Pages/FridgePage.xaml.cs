@@ -170,16 +170,17 @@ namespace FridgeManagementApplication.Pages
                     {
 
                         id_user = SelectedHolder.SelectedHolderId,
-                        product_name_rap = prod.product_name ,
+                        product_name_rap = selectedProduct ,
                         raport_quantity = quant,
                         add_remove = "REMOVE",
                         action_time = DateTime.Now
                     };
 
-                    db.SaveChanges();
+                
 
 
                     db.Product.RemoveRange(productUpdate);
+                    db.Raports.Add(raport);
                     db.SaveChanges();
                     UpdateFridge();
                 }
@@ -187,22 +188,22 @@ namespace FridgeManagementApplication.Pages
                 {
                     MessageBox.Show("Invalid value");
                 }
-                else
+                else if(result >0 )
                 {
                     Raports raport = new Raports()
                     {
-
                         id_user = SelectedHolder.SelectedHolderId,
-                        product_name_rap = prod.product_name,
+                        product_name_rap = selectedProduct,
                         raport_quantity = quant,
                         add_remove = "REMOVE",
                         action_time = DateTime.Now
                     };
 
                     prod.quantity_product = result;
+
+                    db.Raports.Add(raport);
                     db.SaveChanges();
-
-
+                    UpdateFridge();
 
                 }
                 db.SaveChanges();
